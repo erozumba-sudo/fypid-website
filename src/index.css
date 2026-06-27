@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0B0C10;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ── Space animations ──────────────────────────────────────── */
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--star-opacity, 0.3); transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.4); }
+}
+
+@keyframes twinkle-slow {
+  0%, 100% { opacity: var(--star-opacity, 0.2); }
+  60%       { opacity: 0.9; }
+}
+
+@keyframes float-nebula {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-20px, 15px) scale(0.97); }
+}
+
+@keyframes shooting-star {
+  0%   { transform: translateX(0) translateY(0); opacity: 1; width: 3px; }
+  70%  { opacity: 1; }
+  100% { transform: translateX(350px) translateY(210px); opacity: 0; width: 100px; }
+}
+
+@keyframes shooting-star-2 {
+  0%   { transform: translateX(0) translateY(0); opacity: 0.8; width: 2px; }
+  70%  { opacity: 0.8; }
+  100% { transform: translateX(250px) translateY(150px); opacity: 0; width: 70px; }
+}
+
+@keyframes moon-glow {
+  0%, 100% { filter: drop-shadow(0 0 24px rgba(212,175,55,0.25)) drop-shadow(0 0 60px rgba(212,175,55,0.10)); }
+  50%       { filter: drop-shadow(0 0 36px rgba(212,175,55,0.40)) drop-shadow(0 0 90px rgba(212,175,55,0.18)); }
+}
+
+@keyframes orbit-ring {
+  from { transform: rotateX(75deg) rotate(0deg); }
+  to   { transform: rotateX(75deg) rotate(360deg); }
+}
+
+@keyframes float-planet {
+  0%, 100% { transform: translateY(0px) rotate(-8deg); }
+  50%       { transform: translateY(-18px) rotate(-8deg); }
+}
+
+@keyframes nebula-pulse {
+  0%, 100% { opacity: 0.07; }
+  50%       { opacity: 0.13; }
+}
+
+@keyframes comet {
+  0%   { transform: translate(-60px, -60px) rotate(45deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(120vw, 120vw) rotate(45deg); opacity: 0; }
+}
+
+@keyframes btn-pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212,175,55,0.0), 0 8px 32px rgba(212,175,55,0.30);
+    transform: scale(1);
+  }
+  40% {
+    box-shadow: 0 0 0 10px rgba(212,175,55,0.15), 0 8px 40px rgba(212,175,55,0.55);
+    transform: scale(1.03);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(212,175,55,0.04), 0 8px 48px rgba(212,175,55,0.40);
+    transform: scale(1.01);
+  }
+}
+
+@keyframes btn-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Utility classes */
+.star-twinkle        { animation: twinkle var(--duration, 3s) ease-in-out infinite; }
+.star-twinkle-slow   { animation: twinkle-slow var(--duration, 5s) ease-in-out infinite; }
+.nebula-float        { animation: float-nebula 18s ease-in-out infinite; }
+.nebula-float-delay  { animation: float-nebula 22s ease-in-out infinite reverse; }
+.moon-animate        { animation: moon-glow 4s ease-in-out infinite, float-planet 8s ease-in-out infinite; }
+.btn-hoki-pulse      { animation: btn-pulse-gold 2s ease-in-out infinite; }
